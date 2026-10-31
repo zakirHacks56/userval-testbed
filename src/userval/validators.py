@@ -17,6 +17,8 @@ def validate_username(username):
     if not isinstance(username, str):
         raise ValueError("username must be a string")
     cleaned = username.strip()
+    if not cleaned:
+        raise ValueError("username must not be empty")
     if len(cleaned) > MAX_LENGTH:
         raise ValueError("username too long")
     return cleaned
